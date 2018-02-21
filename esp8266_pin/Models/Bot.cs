@@ -28,7 +28,11 @@ namespace esp8266_pin.Models
             //инициализируем коллекцию всех! команд
             commandsLists = new List<Command>();
             commandsLists.Add(new HelloCommand());
+            commandsLists.Add(new StartCommand());
+            //commandsLists.Add(new TextMessageProcessor());
+            commandsLists.Add(new SubscribeCommand());
             //TODO: Add more commands
+
 
             client = new TelegramBotClient(AppSettings.Key);
             var hook = string.Format(AppSettings.Url, "api/message/update");
@@ -41,8 +45,6 @@ namespace esp8266_pin.Models
             //рекомендуем использовать секретный путь в URL-адресе, 
             //например. https://www.example.com/ <лексема>. Поскольку никто другой не знает маркера 
             //вашего бота, вы можете быть уверены, что это мы.
-
-
 
             return client;
         }

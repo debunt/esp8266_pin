@@ -29,9 +29,10 @@ namespace esp8266_pin.Models.Commands
         public bool Comparison(string commandbot)
         {
             //команду будем сверять по имени самой команды и имени бота
-            return commandbot.Contains(this.Name) && commandbot.Contains(AppSettings.Name);
+            //return commandbot.Contains(this.Name) && commandbot.Contains(AppSettings.Name);
             //Возвращает значение, указывающее, содержит ли указанная 
             //строка значение подстроки переданной в качестве параметра.
+            return commandbot.Contains(this.Name);
         }
     }
 }

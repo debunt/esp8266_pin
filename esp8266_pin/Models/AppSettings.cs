@@ -16,7 +16,18 @@ namespace esp8266_pin.Models
         //название контакта нашего бота
         public static string Name { get; set; } = "esp8266_pin_bot";
 
-        //API ключ нашего бота
-        public static string Key { get; set; } = "452678815:AAH9tO6xF_1XMapgCZ_f0oqrewQa9L05dfU";
+        //API ключ нашего бота... Для того, чтобы защитить этот ключ после развертывания на каком-либо сервере,
+        //файл конфигурации необходимо ограничить правами доступа!
+        public static string Key { get; set; } = Properties.Settings.Default.token;
+
+        /// <summary>
+        /// Название управляемой платы
+        /// </summary>
+        public static string Name_board { get; set; } = "ESP8266";
+
+        /// <summary>
+        /// Мой чат id для отправки мне сообщений. Заполняется после подписки
+        /// </summary>
+        public static long My_Chat_Id { get; set; } = 0;
     }
 }

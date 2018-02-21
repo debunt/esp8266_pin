@@ -9,7 +9,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using Telegram.Bot.Types;
 using esp8266_pin.Models;
-
+using esp8266_pin.Models.Notifications;
 
 namespace esp8266_pin.Controllers
 {
@@ -25,10 +25,14 @@ namespace esp8266_pin.Controllers
             var commands = Bot.Commands;//список доступных команд
             var message = update.Message;
             var client = await Bot.Get();
-
             foreach(var commandbot in commands)
             {
                 if(commandbot.Comparison(message.Text))
+                {
+                    commandbot.Execute(message, client);
+                    break;
+                }
+                if(commandbot.Comparison(message.Type.ToString()) && message.Type.ToString() != "CommandProcessor")
                 {
                     commandbot.Execute(message, client);
                     break;

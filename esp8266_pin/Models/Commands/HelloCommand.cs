@@ -18,7 +18,7 @@ namespace esp8266_pin.Models.Commands
             var messageId = message.MessageId;
 
             //TODO: Bot logic -_-
-            client.SendTextMessageAsync(chatId, "Hello!", replyToMessageId: messageId);
+            client.SendTextMessageAsync(chatId, String.Format("Привет, {0}! Я Еспэшка! Жду твоих команд...", message.From.FirstName));
         }
     }
 }
